@@ -1,2 +1,6 @@
 git remote add origin https://github.com/Anta4ever/My-Prortfolio-AF.git
 git push -u origin main
+git config --global user.email "afall2@unh.newhaven.edu"
+git config --global user.name "Anta4ever"
+git checkout -b AntaDevelopment
+
