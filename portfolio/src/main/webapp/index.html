@@ -2,18 +2,105 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>Anta's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
   <body>
     <div id="content">
-      <h1>My Portfolio</h1>
+      <h1>Anta's Portfolio</h1>
       <p>This is my portfolio.</p>
       <p>Click <a href="/hello">here</a> to see content created by server code.</p>
       <p>Click here to get a random message:</p>
       <button onclick="addRandomGreeting()">Hello</button>
       <div id="greeting-container"></div>
     </div>
+  </body>
+</html>
+<h1>Anta Fall</h1>
+<p>
+ LinkedIn:  https://www.linkedin.com/in/anta-f-b8203b12b/ 
+</p>
+<p>
+<img src="images/Selfie.jpg"/>
+
+</p>
+<p>
+    I am currently studying Cyber Security at the University of New Haven.
+    I am a sophomore and I'm excited to work with my team!
+</p>
+<p> I also love to travel so here is an image of me during my high school field trip to Europe!</p>
+
+<p> My favorite place to visit was Germany because of the great food, 
+    however I loved Switzerland because of the Swiz chocolate and the Swiz Alps!</p>
+    <img src="images/Switzerland.jpg" />
+   
+ 
+ <script src="location.js"></script>
+ <button onclick="showLocation();">
+  Locations!
+</button>
+<p id="location-container"></p>
+</html>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Translation</title>
+
+    <script>
+      function requestTranslation() {
+        const text = document.getElementById('text').value;
+        const languageCode = document.getElementById('language').value;
+
+        const resultContainer = document.getElementById('result');
+        resultContainer.innerText = 'Loading...';
+
+        const params = new URLSearchParams();
+        params.append('text', text);
+        params.append('languageCode', languageCode);
+
+        fetch('/translate', {
+          method: 'POST',
+          body: params
+        }).then(response => response.text())
+        .then((translatedMessage) => {
+          resultContainer.innerText = translatedMessage;
+        });
+      }
+    </script>
+
+    <style>
+      #text {
+        width: 500px;
+        height: 125px;
+      }
+
+      #language {
+        display: block;
+        margin-top: 25px;
+        margin-bottom: 25px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <h1>Translation</h1>
+    <p>Type a message and select a language, then click submit to translate it.</p>
+
+    <textarea id="text"></textarea>
+
+    <select id="language">
+      <option value="es">English</option>
+      <option value="zh">Chinese</option>
+      <option value="es">Spanish</option>
+      <option value="hi">Hindi</option>
+      <option value="ar">Arabic</option>
+    </select>
+
+    <button onclick="requestTranslation();">Translate</button>
+
+    <hr/>
+    <div id="result"></div>
   </body>
 </html>
